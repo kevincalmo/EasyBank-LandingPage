@@ -12,9 +12,25 @@ a:visited {
   text-decoration: none;
 }
 
+
 button {
     cursor: pointer;
 }
+
+body{
+  overflow-x: hidden;
+}
+
+.mobile.visible{
+  position: fixed;
+   width: 100vw;
+   height: 100vh;
+   background: rgba(0, 0, 0, 0.226);
+   z-index: 98;
+   margin-top: 50px;
+   
+}
+
 
 /* BARRE DE NAVIGATION*/
 .navigation_bar {
@@ -31,9 +47,10 @@ button {
   top: 0;
   width: 100%;
   background-color: white;
+  
 }
 .navigation_bar nav {
-  position: absolute;
+  position: fixed;
   left: -500px;
 }
 
@@ -86,6 +103,9 @@ button {
   justify-content: center;
   overflow: hidden;
 }
+.herobanner-img{
+  max-width: 300px;
+}
 .herobanner-img img {
   width: 90%;
   z-index: 0;
@@ -106,6 +126,7 @@ button {
   text-align: center;
   margin-top: -90px;
   padding-inline: 4%;
+  background: white;
 }
 .herobanner-content p {
   margin-top: 30px;
@@ -136,9 +157,9 @@ button {
   text-decoration: none;
   border: none;
     padding: 10px 30px;
-    font-size: 1.25rem;
+    font-size: 0.8rem;
     position: relative;
-    margin: 32px;
+    margin: 10px 0;
     overflow: hidden;
     color: white;
     border-radius: 30px;
@@ -179,7 +200,7 @@ main {
 }
 .main_why {
   background-color: #f4f5f7;
-  padding: 10% 0%;
+  padding: 5% 0%;
 }
 .main_cards {
   flex-direction: row;
@@ -191,7 +212,9 @@ main {
   text-align: center;
   margin-bottom: 50px;
 }
-
+.card{
+  width: 320px;
+}
 .card h4 {
   margin: 25px 0;
 }
@@ -213,12 +236,16 @@ main {
   align-items: center;
   justify-content: center;
 }
-
+.articles{
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 .main_articles h3 {
   margin: 30px 50px;
 }
 .articles article {
   margin-bottom: 50px;
+  width: 320px;
 }
 .articles img {
   width: 85%;
@@ -238,6 +265,12 @@ main {
 .articles article h4 {
   font-size: 0.9rem;
   margin: 10px 0;
+  cursor: pointer;
+  transition: 0.3s ease-in;
+}
+.articles article h4:hover {
+  color: rgba(52, 206, 109, 1);
+  transition: 0.3s ease-in;
 }
 
 .articles article h4,
@@ -279,6 +312,116 @@ footer {
 .footer_action .copyrigth {
   margin-top: 10px;
 }
+
+/* MEDIA QUERIES */
+@media screen and (min-width: 1200px) {
+  .herobanner-content .btn{
+    font-size: 1.5rem;
+    align-self: flex-start;
+  }
+  .header_herobanner {
+    display: grid;
+    grid-template-columns: 0.5fr 0.7fr;
+  }
+  .herobanner-content{
+    height: 700px;
+    padding-top: 35%;
+  }
+  .herobanner-content p {
+    font-size: 1.5rem;
+  }
+  .header_herobanner h1 {
+    font-size: 4rem;
+  }
+  .herobanner-content button {
+    margin: 30px 0;
+  }
+  .header_herobanner {
+    background-image: url(/images/bg-intro-desktop.svg);
+    background-position: top -110px right -300px;
+    background-size: 70%;
+    padding-inline: 5%;
+  }
+  .herobanner-img img {
+    width: auto;
+    height: 125%;
+    z-index: 0;
+    transform: rotate(180%);
+    position: absolute;
+    top: -5%;
+    left: 83%;
+  }
+  .navigation_bar{ 
+    padding: 0;
+    justify-content: space-evenly;
+  }
+  .navigation_bar nav {
+    position:unset;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .navigation_bar nav li {
+    margin-inline: 10px;
+  }
+  .navigation_bar a {
+    display: block;
+  }
+  .navigation_bar .navigation_mobile img:nth-child(1) {
+    display: none;
+  }
+  .navigation_bar .navigation_mobile img:nth-child(2) {
+    display: none;
+  }
+  .main_why{
+    z-index: 9999;
+  }
+  .main_why h3, .main_articles h3{
+    font-size: 1.7rem;
+  }
+  .main_why p{
+    font-size: 1.1rem;
+  }
+  .main_why, .main_articles{
+   align-items: flex-start;
+   padding-inline: 2.5%;
+  }
+  .presentation_why {
+    padding-inline: 4%;
+    text-align: left;
+    margin-bottom: 50px;
+  }
+  .card{
+    align-items: flex-start;
+  }
+  .card p {
+    text-align: left;
+  }
+  footer{
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 200px;
+  }
+  .footer_links{
+    display: flex;
+    align-items: center;
+  }
+  .footer_links ul{
+    margin-inline: 20px;
+  }
+
+   .navigation_bar nav span {
+    width: 60px;
+    height: 5px;
+    background: linear-gradient(225deg,#26caf8 0%, #27d86c 100%);
+    position:fixed;
+    margin-top: 31px;
+    margin-left: -45px;
+  }
+}
+
+
+/* KEYFRAMES */
 
 
 @keyframes btnAnim {
