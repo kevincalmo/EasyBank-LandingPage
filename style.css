@@ -39,8 +39,11 @@ body{
   align-items: center;
   padding: 5% 3%;
   box-shadow: 0 2px 5px black;
-
-  z-index: 99;
+  z-index: 99999999;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
 }
 .sticky {
   position: fixed;
@@ -95,8 +98,8 @@ body{
 .header_herobanner {
   background-image: url(/images/bg-intro-mobile.svg);
   background-repeat: no-repeat;
-  background-position: right top -70px;
-  background-size: 100%;
+  background-position: right top -160px;
+  background-size: auto;
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
@@ -104,14 +107,14 @@ body{
   overflow: hidden;
 }
 .herobanner-img{
-  max-width: 300px;
+  max-width: 580px;
 }
 .herobanner-img img {
   width: 90%;
   z-index: 0;
   transform: rotate(180%);
   position: relative;
-  top: -103px;
+  top: -95px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -313,6 +316,15 @@ footer {
   margin-top: 10px;
 }
 
+@media screen and (min-width: 700px) {
+  .header_herobanner {
+    background-position: right top 50px;
+  }
+  .herobanner-img img {
+    top: -85px;
+  }
+}
+
 /* MEDIA QUERIES */
 @media screen and (min-width: 1200px) {
   .herobanner-content .btn{
@@ -345,7 +357,7 @@ footer {
   .herobanner-img img {
     width: auto;
     height: 125%;
-    z-index: 0;
+    z-index: 999999;
     transform: rotate(180%);
     position: absolute;
     top: -5%;
@@ -376,6 +388,10 @@ footer {
   .main_why{
     z-index: 9999;
   }
+  .presentation_why,
+  .main_articles h3{
+    align-self: flex-start;
+  }
   .main_why h3, .main_articles h3{
     font-size: 1.7rem;
   }
@@ -383,8 +399,9 @@ footer {
     font-size: 1.1rem;
   }
   .main_why, .main_articles{
-   align-items: flex-start;
+   /* align-items: flex-start; */
    padding-inline: 2.5%;
+   width: 100%;
   }
   .presentation_why {
     padding-inline: 4%;
@@ -396,6 +413,12 @@ footer {
   }
   .card p {
     text-align: left;
+  }
+  main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
   }
   footer{
     flex-direction: row;
@@ -410,8 +433,8 @@ footer {
     margin-inline: 20px;
   }
 
-   .navigation_bar nav span {
-    width: 60px;
+   .navigation_bar nav span.visible {
+    width: 50px;
     height: 5px;
     background: linear-gradient(225deg,#26caf8 0%, #27d86c 100%);
     position:fixed;

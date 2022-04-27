@@ -39,3 +39,20 @@ close.addEventListener('click', ()=> {
     mobile.classList.remove('visible');
     body.classList.remove('mobile');
 })
+
+/* MENU DESKTOP */
+const link = document.querySelectorAll('#links li');
+link.forEach(element => {
+    
+   
+    element.addEventListener('mouseover', ()=>{
+        linkElement = element.id;
+        span = document.querySelector('#'+linkElement+' span');
+        span.classList.add('visible')        
+    });
+    element.addEventListener('mouseout', ()=>{
+        linkElement = element.id;
+        span = document.querySelector('#'+linkElement+' span');
+        span.classList.remove('visible')        
+    });
+});
