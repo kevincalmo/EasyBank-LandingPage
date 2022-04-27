@@ -36,11 +36,41 @@ button {
   position: absolute;
   left: -500px;
 }
+
+.navigation_bar nav.visible{
+  left: 50%;
+  top: 13%;
+  transform: translateX(-50%);
+  background-color: white;
+  z-index: 999999;
+  width: 80%;
+  height: 40%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.navigation_bar nav.visible li{
+  font-size: 1.5rem;
+  margin: 10px 0;
+  cursor:pointer;
+}
+.navigation_bar nav.visible li:hover{
+  transition: 0.5s ease-in;
+  text-decoration: underline;
+}
 .navigation_bar a {
+  display: none;
+}
+.navigation_bar .navigation_mobile img:nth-child(1).close {
   display: none;
 }
 .navigation_bar .navigation_mobile img:nth-child(2) {
   display: none;
+}
+.navigation_bar .navigation_mobile img:nth-child(2).visible {
+  display: block;
 }
 
 /* HEROBANNER */
@@ -65,6 +95,9 @@ button {
   left: 50%;
   transform: translateX(-50%);
 }
+.herobanner-img img.close {
+  display: none;
+}
 .herobanner-content {
   display: flex;
   flex-direction: column;
@@ -88,20 +121,48 @@ button {
 }
 
 .btn {
-  padding: 3% 8%;
+ /*  padding: 3% 8%;
   font-size: 1.1rem;
   border: none;
   border-radius: 50px;
+  
+  color: white; */
   background: linear-gradient(
     90deg,
     rgba(2, 0, 36, 1) 0%,
     rgba(52, 206, 109, 1) 0%,
     rgba(47, 184, 198, 1) 100%
   );
-  color: white;
+  text-decoration: none;
+  border: none;
+    padding: 10px 30px;
+    font-size: 1.25rem;
+    position: relative;
+    margin: 32px;
+    overflow: hidden;
+    color: white;
+    border-radius: 30px;
+    box-shadow: 0 0 0 0 rgba(14.,64,248,0.5),0 0 0 0 rgba(39,200,255,0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.btn:hover{
-    animation: wobble-hor-bottom 0.8s both;
+.btn::after {
+  content: "";
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  top: -50px;
+  left: -100px;
+  background-color: #ff3cac;
+  background-image: linear-gradient(225deg,#27d86c 0%, #26caf8 50%, #c625d0 100%);
+  z-index: -1;
+  transition: transform 0.5s ease;
+}
+.btn:hover {
+  transform: translate(0,6px);
+  box-shadow: 10px -10px 25px 0 rgba(143,64,248,0.5), -10px 10px 25px 0 rgba(39,200,255,0.5);
+}
+.btn:hover::after {
+  transform: rotate(150deg);
 }
 
 /* MAIN */
